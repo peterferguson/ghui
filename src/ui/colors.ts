@@ -14,6 +14,8 @@ export type ThemeId =
 	| "everforest"
 	| "vesper"
 	| "opencode"
+	| "pierre-dark"
+	| "pierre-light"
 
 export interface ColorPalette {
 	readonly background: string
@@ -764,6 +766,84 @@ const vesperColors: ColorPalette = {
 	},
 }
 
+const pierreDarkColors: ColorPalette = {
+	background: "#070707",
+	modalBackground: "#141415",
+	text: "#fbfbfb",
+	muted: "#84848A",
+	separator: "#1F1F21",
+	accent: "#009fff",
+	inlineCode: "#ff678d",
+	error: "#ff2e3f",
+	selectedBg: "#121b27",
+	selectedText: "#fbfbfb",
+	count: "#ffa359",
+	status: {
+		draft: "#ffca00",
+		approved: "#00cab1",
+		changes: "#ff2e3f",
+		review: "#08c0ef",
+		none: "#84848A",
+		passing: "#00cab1",
+		pending: "#ffca00",
+		failing: "#ff2e3f",
+	},
+	repos: {
+		opencode: "#009fff",
+		"effect-smol": "#61d5c0",
+		"opencode-console": "#d568ea",
+		opencontrol: "#ffa359",
+		default: "#68cdf2",
+	},
+	diff: {
+		addedBg: "#182e1c",
+		removedBg: "#391a19",
+		contextBg: "transparent",
+		lineNumberBg: "#070707",
+		addedLineNumberBg: "#142517",
+		removedLineNumberBg: "#2c1515",
+	},
+}
+
+const pierreLightColors: ColorPalette = {
+	background: "#ffffff",
+	modalBackground: "#f8f8f8",
+	text: "#070707",
+	muted: "#84848A",
+	separator: "#dbdbdd",
+	accent: "#009fff",
+	inlineCode: "#fc2b73",
+	error: "#ff2e3f",
+	selectedBg: "#e5efff",
+	selectedText: "#070707",
+	count: "#d47628",
+	status: {
+		draft: "#ffca00",
+		approved: "#00cab1",
+		changes: "#ff2e3f",
+		review: "#08c0ef",
+		none: "#8E8E95",
+		passing: "#00cab1",
+		pending: "#ffca00",
+		failing: "#ff2e3f",
+	},
+	repos: {
+		opencode: "#009fff",
+		"effect-smol": "#16a994",
+		"opencode-console": "#c635e4",
+		opencontrol: "#d47628",
+		default: "#1ca1c7",
+	},
+	diff: {
+		addedBg: "#e2f7ea",
+		removedBg: "#ffe6e8",
+		contextBg: "transparent",
+		lineNumberBg: "#ffffff",
+		addedLineNumberBg: "#e9f9ef",
+		removedLineNumberBg: "#ffecee",
+	},
+}
+
 export const themeDefinitions: readonly ThemeDefinition[] = [
 	{ id: "system", name: "System", description: "Use the terminal foreground, background, and ANSI palette", colors: systemColors },
 	{ id: "ghui", name: "GHUI", description: "Warm parchment accents on a deep slate background", colors: ghuiColors },
@@ -780,6 +860,8 @@ export const themeDefinitions: readonly ThemeDefinition[] = [
 	{ id: "everforest", name: "Everforest", description: "Soft green-gray forest tones with warm highlights", colors: everforestColors },
 	{ id: "vesper", name: "Vesper", description: "Minimal black surfaces with peach and aqua accents", colors: vesperColors },
 	{ id: "opencode", name: "OpenCode", description: "Charcoal panels with peach, violet, and blue highlights", colors: opencodeColors },
+	{ id: "pierre-dark", name: "Pierre Dark", description: "Crisp blacks with a true blue accent and pastel syntax", colors: pierreDarkColors },
+	{ id: "pierre-light", name: "Pierre Light", description: "Bright whites with the same true blue accent (first light theme)", colors: pierreLightColors },
 ] as const
 
 let activeTheme = themeDefinitions.find((theme) => theme.id === "ghui") ?? themeDefinitions[0]!
